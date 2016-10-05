@@ -51,7 +51,7 @@ Q co ->
     try
       res = yield popsicle.post
         url: config.apiPrefix + "posts/"
-        body: posts: [postObject]
+        body: JSON.stringify posts: [postObject]
         headers:
           Authorization: "Bearer #{config.token}"
 
