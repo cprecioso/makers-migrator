@@ -32,10 +32,11 @@ Q co ->
 
     markdown =
       try
-        transform (yield sander.readFile "data", "html", post.id + ".html")
+        yield transform (yield sander.readFile "data", "html", post.id + ".html", {encoding})
       catch err
         console.log "No text for #{post.id}"
         console.log err
+        undefined
 
     postObject = {
       slug: post.id
@@ -51,7 +52,7 @@ Q co ->
     try
       res = yield popsicle.post
         url: config.apiPrefix + "posts/"
-        body: JSON.stringify posts: [postObject]
+        body: posts: [postObject]
         headers:
           Authorization: "Bearer #{config.token}"
 
