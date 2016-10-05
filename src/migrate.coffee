@@ -55,7 +55,7 @@ Q co ->
         headers:
           Authorization: "Bearer #{config.token}"
 
-      if res.status isnt 200
+      unless 200 <= res.status < 300
         err = new Error "Response isn't 200'"
         err.response = res
         throw err
@@ -65,5 +65,7 @@ Q co ->
     catch err
       console.log "Error posting #{post.id}"
       console.log err
+  
+  return
 
 .done (console.log.bind console, "Finished"), (console.log.bind console, "Error")
