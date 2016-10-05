@@ -1,3 +1,6 @@
+
+**Enable Public API in Labs section of Ghost Admin panel**
+
 1. Download main table from Google Drive as TSV and save in `data/index.tsv`
 2. Copy all images to `data/img`
 3. `npm install`

@@ -6,14 +6,20 @@ posthtml = require "posthtml"
 
 encoding = "utf8"
 
-processor =
-  posthtml()
-  .use require("./select")(unwrap: yes, selector: attrs: id: "contents")
-  .use require("./removeIds")()
-  .use require("./removeSuperfluousSpans")()
-  .use require("./namespace")()
-  .use require("./resolveUrls")()
+module.exports = (dirtyHtml, flickr, form) ->
 
-module.exports = (dirtyHtml) ->
+  processor =
+    posthtml()
+    .use require("./select")(unwrap: yes, selector: attrs: id: "contents")
+    .use require("./removeIds")()
+    .use require("./removeSuperfluousSpans")()
+    .use require("./namespace")()
+    .use require("./resolveUrls")()
+  
+  if flickr
+    processor = processor.use require("./flickr")(flickr)
+  if form
+    processor = processor.use require("./form")(form)
+  
   processor.process(dirtyHtml)
   .then ({html}) -> html

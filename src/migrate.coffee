@@ -32,7 +32,7 @@ Q co ->
 
     markdown =
       try
-        yield transform (yield sander.readFile "data", "html", post.id + ".html", {encoding})
+        yield transform (yield sander.readFile "data", "html", post.id + ".html", {encoding}), post.flickr, post.form
       catch err
         console.log "No text for #{post.id}"
         console.log err
