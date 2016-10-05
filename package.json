@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cheerio": "^0.22.0",
     "co": "^4.6.0",
     "popsicle": "^8.2.0",
     "postcss-class-prefix": "^0.3.0",
