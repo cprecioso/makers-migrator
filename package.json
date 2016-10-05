@@ -22,7 +22,6 @@
     "posthtml-prefix-class": "^1.0.5",
     "q": "^1.4.1",
     "sander": "^0.5.1",
-    "to-markdown": "^3.0.1",
     "tsv": "^0.2.0"
   },
   "devDependencies": {

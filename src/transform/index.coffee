@@ -3,7 +3,6 @@ Q.longStackSupport = on
 co = require "co"
 sander = require "sander"
 posthtml = require "posthtml"
-toMd = require "to-markdown"
 
 encoding = "utf8"
 
@@ -17,4 +16,4 @@ processor =
 
 module.exports = (dirtyHtml) ->
   processor.process(dirtyHtml)
-  .then ({html}) -> toMd html
+  .then ({html}) -> html
