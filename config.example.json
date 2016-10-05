@@ -1,0 +1,5 @@
+{
+  "token": "Insert bearer token (withouth the Bearer part) here (instructions here http://api.ghost.org/docs/user-authentication)",
+  "contentPath": "Absolute path to Ghost's content path",
+  "apiPrefix": "probably http://localhost:2368/ghost/api/v0.1/"
+}

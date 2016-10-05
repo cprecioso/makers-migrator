@@ -1,0 +1,31 @@
+{
+  "name": "migrator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "coffee -c -o lib/ src/",
+    "download": "coffee src/download.coffee",
+    "migrate": "coffee src/migrate.coffee"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "co": "^4.6.0",
+    "popsicle": "^8.2.0",
+    "postcss-class-prefix": "^0.3.0",
+    "postcss-prefix-selector": "^1.4.0",
+    "posthtml": "^0.9.1",
+    "posthtml-postcss": "^0.2.4",
+    "posthtml-prefix-class": "^1.0.5",
+    "q": "^1.4.1",
+    "sander": "^0.5.1",
+    "to-markdown": "^3.0.1",
+    "tsv": "^0.2.0"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.11.1"
+  }
+}
