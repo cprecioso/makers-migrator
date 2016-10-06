@@ -15,16 +15,28 @@ humanDateToISO = (date) ->
   date = new Date year, --month, day
   date.toISOString()
 
+normalize = (str) ->
+  str.toLowerCase()
+  .replace /á/g, "a"
+  .replace /é/g, "e"
+  .replace /í/g, "i"
+  .replace /ó/g, "o"
+  .replace /ú/g, "u"
+  .replace /ñ/g, "n"
+  .replace /ç/g, "c"
+
 Q co ->
   data = TSV.parse (yield sander.readFile "data", "index.tsv", {encoding})
 
   for post in data when post.id
     console.log "\nProcessing #{post.title}"
 
+    normalized = normalize post.id
+
     image =
       try 
-        yield sander.copyFile("data", "img", post.id + ".jpg").to(config.contentPath, "images", "migrado", post.id + ".jpg")
-        "/content/images/migrado/#{post.id}.jpg"
+        yield sander.copyFile("data", "img", post.id + ".jpg").to(config.contentPath, "images", "migrado", "#{normalized}.jpg")
+        "/content/images/migrado/#{normalized}.jpg"
       catch err
         console.log "No image for #{post.id}"
         console.log err
@@ -32,7 +44,10 @@ Q co ->
 
     markdown =
       try
-        yield transform (yield sander.readFile "data", "html", post.id + ".html", {encoding}), post.flickr, post.form
+        yield transform (yield sander.readFile "data", "html", post.id + ".html", {encoding}), {
+          flickr: post.flickr
+          form: post.form
+        }
       catch err
         console.log "No text for #{post.id}"
         console.log err

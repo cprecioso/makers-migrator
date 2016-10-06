@@ -6,7 +6,7 @@ posthtml = require "posthtml"
 
 encoding = "utf8"
 
-module.exports = (dirtyHtml, flickr, form) ->
+module.exports = (dirtyHtml, {flickr, form}) ->
 
   processor =
     posthtml()
