@@ -2,5 +2,5 @@
 - [ ] tags
 - [x] flickr
 - [x] forms
-- [ ] embbeded images
+- [x] embbeded images
 - [ ] Probably more

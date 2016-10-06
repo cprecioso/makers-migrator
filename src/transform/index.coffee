@@ -6,7 +6,7 @@ posthtml = require "posthtml"
 
 encoding = "utf8"
 
-module.exports = (dirtyHtml, {flickr, form}) ->
+module.exports = (dirtyHtml, {urlToMedia, pathToMedia, flickr, form}) ->
 
   processor =
     posthtml()
@@ -15,6 +15,7 @@ module.exports = (dirtyHtml, {flickr, form}) ->
     .use require("./removeSuperfluousSpans")()
     .use require("./namespace")()
     .use require("./resolveUrls")()
+    .use require("./unembedder")({urlToMedia, pathToMedia})
   
   if flickr
     processor = processor.use require("./flickr")(flickr)

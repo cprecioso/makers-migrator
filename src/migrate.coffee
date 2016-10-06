@@ -45,6 +45,8 @@ Q co ->
     markdown =
       try
         yield transform (yield sander.readFile "data", "html", post.id + ".html", {encoding}), {
+          urlToMedia: ["/", "content", "images", "migrado", "#{normalized}-media"]
+          pathToMedia: [config.contentPath, "images", "migrado", "#{normalized}-media"]
           flickr: post.flickr
           form: post.form
         }
