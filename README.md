@@ -7,4 +7,5 @@
 4. `npm run download` (takes a while)
 5. Copy `config.example.json` to `config.json` and fill it out. (the bearer token has an expiration time, so do this last)
 6. `npm run migrate > migration.log` and sit for a while. `migration.log` will have all the info when it's finished.
-7. Fix all the things broken for which a script written in an evening is insufficient
+7. Upload the newly created `images` folder to the `content` folder of Ghost. (Remember to `chown -R ghost:ghost images`!)
+8. Fix all the things broken for which a script written in an evening is insufficient

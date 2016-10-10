@@ -34,8 +34,8 @@ Q co ->
     normalized = normalize post.id
 
     image =
-      try 
-        yield sander.copyFile("data", "img", post.id + ".jpg").to(config.contentPath, "images", "migrado", "#{normalized}.jpg")
+      try
+        yield sander.copyFile("data", "img", post.id + ".jpg").to("images", "migrado", "#{normalized}.jpg")
         "/content/images/migrado/#{normalized}.jpg"
       catch err
         console.log "No image for #{post.id}"
@@ -46,7 +46,7 @@ Q co ->
       try
         yield transform (yield sander.readFile "data", "html", post.id + ".html", {encoding}), {
           urlToMedia: ["/", "content", "images", "migrado", "#{normalized}-media"]
-          pathToMedia: [config.contentPath, "images", "migrado", "#{normalized}-media"]
+          pathToMedia: ["images", "migrado", "#{normalized}-media"]
           flickr: post.flickr
           form: post.form
         }
