@@ -1,7 +1,5 @@
 posthtml = require "posthtml"
 
-encoding = "utf8"
-
 module.exports = (dirtyHtml, {urlToMedia, pathToMedia, flickr, form}) ->
 
   processor =
