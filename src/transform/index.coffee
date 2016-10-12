@@ -1,7 +1,3 @@
-Q = require "q"
-Q.longStackSupport = on
-co = require "co"
-sander = require "sander"
 posthtml = require "posthtml"
 
 encoding = "utf8"
